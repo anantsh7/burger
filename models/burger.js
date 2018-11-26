@@ -1,19 +1,18 @@
 var orm = require("../config/orm.js");
 var burger = {
-    all: function(e) {
+    all: function(obj) {
       orm.all("burgers", function(res) {
-        e(res);
+        obj(res);
       });
     },
-    // The variables cols and vals are arrays.
-    create: function(cols, vals, e) {
+    create: function(cols, vals, obj) {
       orm.create("burgers", cols, vals, function(res) {
-        e(res);
+        obj(res);
       });
     },
-    update: function(objColVals, condition, e) {
+    update: function(objColVals, condition, obj) {
       orm.update("burgers", objColVals, condition, function(res) {
-        e(res);
+        obj(res);
       });
     }
   };
